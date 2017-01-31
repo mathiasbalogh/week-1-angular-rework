@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weekend 1</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    </head>
+  <body class="container" ng-app="salaryTrack" ng-controller="salController as sal">
+    <h1>Salary Tracker</h1>
+    <form class="thing form-group col-sm-10 col-md-8">
+      <input type="text" id="employeeFirstName" ng-model="sal.employee.name" placeholder="Name" class="form-control"/>
+      <input type="text" ng-model="sal.employee.idNum" placeholder="ID #" class="form-control"/>
+      <input type="text" ng-model="sal.employee.jobTitle" placeholder="Job Title" class="form-control"/>
+      <input type="number" ng-model="sal.employee.annualSalary" placeholder="Annual Salary" class="form-control"/>
+      <input type="submit" value="Submit" ng-click="sal.addEmp(sal.employee)" class="btn btn-info btn-block"/>
+    </form>
+    <div id="employees" class="container col-sm-10 col-md-8">
+      <h2>Employees</h2>
+      <ul>
+          <li class = "person" ng-repeat="employee in sal.employees">Name: {{ employee.name }} <br>Job Title: {{employee.jobTitle}}<br>
+            Id: {{ employee.idNum }} <br> Annual Salary: {{employee.annualSalary}}<br><button class="delete btn-danger" ng-click="sal.deleteEmp($index)">X</button></li>
+
+      </ul>
+    </div>
+    <div id="monthlySalary3" class="container col-sm-10 col-md-8">
+      <h3>Monthly Salary Expenditure:</h3>
+      <p>{{sal.findMonthly();}}</p>
+    </div>
+  </body>
+</html>
