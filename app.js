@@ -13,4 +13,6 @@ app.get('/', function (req, res) {
 });
 
 
-app.listen(3000);
+var server = app.listen(process.env.PORT || 3000 , function(){
+  console.log('Server listening');
+});
