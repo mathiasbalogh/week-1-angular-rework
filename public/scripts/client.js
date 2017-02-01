@@ -24,7 +24,6 @@ sal.findMonthly = function(){
 
 sal.deleteEmp = function(id){
   sal.employees.splice(id,1);
-  sal.findMonthly();
 }
 
 });
